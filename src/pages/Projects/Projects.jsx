@@ -14,120 +14,120 @@
   const Projects = () => {
     const { language } = useLanguage()
 
-    const projectsData = {
-      en: [
-        {
-          id: 1,
-          name: 'Frontend-Backend connected',
-          desc: 'Weather forecast app with interactive maps and hourly updates.',
-          tags: ['React', 'API', 'Express.js', 'MongoDB', 'css'],
-          github: 'https://github.com/ammorrustamov/Exclusive-0',
-          demo: 'https://exclusive-0.vercel.app/',
-          image: Ex
-        },
-        {
-          id: 2,
-          name: 'Uzum Clone',
-          desc: '"A modern e-commerce website inspired by Uzum Market, featuring product browsing, category filtering, responsive design, and a smooth shopping experience."',
-          tags: ["Java Script", "Html", "Css"],
-          github: 'https://github.com/ammorrustamov/2025uzum',
-          demo: 'https://2025uzum.vercel.app/',
-          image: uzum 
-        },
-        {
-          id: 3,
-          name: 'KUGOO Store',
-          desc: 'A modern e-commerce website for KUGOO electric scooters, featuring responsive design, product listings, interactive UI, and a seamless shopping experience.',
-          tags: ['React', 'Css', "Java Script", "Html"],
-          github: 'https://github.com/ammorrustamov/kugo',
-          demo: 'https://kugo-tan.vercel.app/',
-          image: kugo
-        },
-        {
-          id: 4,
-          name: 'Positivus',
-          desc: 'Real-time messaging app with user authentication and private rooms.',
-          tags: ['JavaScript', "html", "css"],
-          github: 'https://github.com/ammorrustamov/qiynalib-qildim',
-          demo: 'https://qiynalib-qildim.vercel.app/',
-          image: Positivus
-        },
-        {
-          id: 5,
-          name: 'Exclusive-2',
-          desc: '"Exclusive is a full-featured e-commerce platform with Stripe payment, admin panel, and a modern React frontend."',
-          tags: ['React', "Java Script", "Html", "Css"],
-          github: 'https://github.com/ammorrustamov/imtixon',
-          demo: 'https://imtixon-gamma-six.vercel.app/',
-          image: a // BU RASM
-        },
-        {
-          id: 6,
-          name: 'Phone Market',
-          desc: 'Full-featured blog with markdown support, comments, and search.',
-          tags: ['React', 'Node.js', 'Express', 'MongoDB'],
-          github: 'https://github.com/ammorrustamov/projeckt',
-          demo: 'https://projeckt-ten.vercel.app/',
-          image: phone
-        }
-      ],
-      uz: [
-        {
-          id: 1,
-          name: 'Exclusive',
-          desc: '"Exclusive - bu Stripe to\'lovi, boshqaruv paneli va zamonaviy React frontendiga ega to\'liq xususiyatli elektron tijorat platformasi."',
-          tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-          github: 'https://github.com/ammorrustamov/imtixon',
-          demo: 'https://imtixon-gamma-six.vercel.app/',
-          image: a // BU RASM
-        },
-        {
-          id: 2,
-          name: 'Vazifalarni Boshqarish',
-          desc: 'Kanban uslubidagi vazifalar paneli, drag-and-drop va jamoa ishi.',
-          tags: ['React', 'Redux', 'Express', 'Socket.io'],
-          github: 'https://github.com/ammorrustamov/task-app',
-          demo: 'https://task-app-demo.vercel.app/',
-          image: null
-        },
-        {
-          id: 3,
-          name: 'Portfolio Sayti',
-          desc: 'Zamonaviy shaxsiy portfolio, animatsiyalar va responsive dizayn.',
-          tags: ['React', 'Framer Motion', 'CSS'],
-          github: 'https://github.com/ammorrustamov/portfolio',
-          demo: 'https://ammorxon.vercel.app/',
-          image: null
-        },
-        {
-          id: 4,
-          name: 'Chat Ilovasi',
-          desc: 'Real-vaqtda xabar almashish, foydalanuvchi autentifikatsiyasi va xonalar.',
-          tags: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-          github: 'https://github.com/ammorrustamov/chat-app',
-          demo: 'https://chat-app-demo.vercel.app/',
-          image: null
-        },
-        {
-          id: 5,
-          name: 'Ob-havo Panel',
-          desc: 'Ob-havo prognozi, interaktiv xaritalar va soatlik yangilanishlar.',
-          tags: ['React', 'API', 'Chart.js'],
-          github: 'https://github.com/ammorrustamov/weather-app',
-          demo: 'https://weather-app-demo.vercel.app/',
-          image: null
-        },
-        {
-          id: 6,
-          name: 'Blog Platformasi',
-          desc: 'To\'liq funksiyali blog, markdown qo\'llab-quvvatlashi, izohlar va qidiruv.',
-          tags: ['React', 'Node.js', 'Express', 'MongoDB'],
-          github: 'https://github.com/ammorrustamov/blog-app',
-          demo: 'https://blog-app-demo.vercel.app/',
-          image: null
-        }
-      ]
+const projectsData = {
+  en: [
+    {
+      id: 1,
+      name: 'Frontend-Backend connected',
+      desc: "A modern full-stack e-commerce platform featuring product browsing, category filtering, shopping cart, wishlist, responsive design, and a seamless user experience.",
+      tags: ['React', 'API', 'Express.js', 'MongoDB', 'CSS', "JavaScript", "HTML"],
+      github: 'https://github.com/ammorrustamov/Exclusive-0',
+      demo: 'https://exclusive-0.vercel.app/',
+      image: Ex
+    },
+    {
+      id: 2,
+      name: 'Uzum Clone',
+      desc: '"A modern e-commerce website inspired by Uzum Market, featuring product browsing, category filtering, responsive design, and a smooth shopping experience."',
+      tags: ["Java Script", "Html", "Css"],
+      github: 'https://github.com/ammorrustamov/2025uzum',
+      demo: 'https://2025uzum.vercel.app/',
+      image: uzum 
+    },
+    {
+      id: 3,
+      name: 'KUGOO Store',
+      desc: 'A modern e-commerce website for KUGOO electric scooters, featuring responsive design, product listings, interactive UI, and a seamless shopping experience.',
+      tags: ['React', 'Css', "Java Script", "Html"],
+      github: 'https://github.com/ammorrustamov/kugo',
+      demo: 'https://kugo-tan.vercel.app/',
+      image: kugo
+    },
+    {
+      id: 4,
+      name: 'Positivus',
+      desc: 'Real-time messaging app with user authentication and private rooms.',
+      tags: ['JavaScript', "html", "css"],
+      github: 'https://github.com/ammorrustamov/qiynalib-qildim',
+      demo: 'https://qiynalib-qildim.vercel.app/',
+      image: Positivus
+    },
+    {
+      id: 5,
+      name: 'Exclusive-2',
+      desc: '"Exclusive is a full-featured e-commerce platform with Stripe payment, admin panel, and a modern React frontend."',
+      tags: ['React', "Java Script", "Html", "Css"],
+      github: 'https://github.com/ammorrustamov/imtixon',
+      demo: 'https://imtixon-gamma-six.vercel.app/',
+      image: a // BU RASM
+    },
+    {
+      id: 6,
+      name: 'Phone Market',
+      desc: 'Full-featured blog with markdown support, comments, and search.',
+      tags: ['React', 'Node.js', 'Express', 'MongoDB'],
+      github: 'https://github.com/ammorrustamov/projeckt',
+      demo: 'https://projeckt-ten.vercel.app/',
+      image: phone
     }
+  ],
+  uz: [
+    {
+      id: 1,
+      name: 'Frontend-Backend ulanishi', // Nomi ham to'g'irlandi
+      desc: "Mahsulotlarni ko'rish, kategoriyalar bo'yicha filtrlash, savat, sevimlilar ro'yxati, moslashuvchan dizayn va qulay foydalanuvchi tajribasiga ega zamonaviy to'liq to'plamli elektron tijorat platformasi.",
+      tags: ['React', 'API', 'Express.js', 'MongoDB', 'css'],
+      github: 'https://github.com/ammorrustamov/Exclusive-0',
+      demo: 'https://exclusive-0.vercel.app/',
+      image: Ex
+    },
+    {
+      id: 2,
+      name: 'Uzum Kloni',
+      desc: "Uzum Marketdan ilhomlangan zamonaviy elektron tijorat veb-sayti. Mahsulotlarni ko'rish, kategoriyalar bo'yicha filtrlash, moslashuvchan dizayn va qulay xarid qilish tajribasi.",
+      tags: ["Java Script", "Html", "Css"],
+      github: 'https://github.com/ammorrustamov/2025uzum',
+      demo: 'https://2025uzum.vercel.app/',
+      image: uzum 
+    },
+    {
+      id: 3,
+      name: 'KUGOO Do‘koni',
+      desc: "KUGOO elektr skuterlari uchun zamonaviy elektron tijorat veb-sayti. Moslashuvchan dizayn, mahsulot ro'yxatlari, interaktiv interfeys va qulay xarid qilish tajribasi.",
+      tags: ['React', 'Css', "Java Script", "Html"],
+      github: 'https://github.com/ammorrustamov/kugo',
+      demo: 'https://kugo-tan.vercel.app/',
+      image: kugo
+    },
+    {
+      id: 4,
+      name: 'Positivus',
+      desc: "Foydalanuvchi autentifikatsiyasi va shaxsiy xonalarga ega real-vaqtda xabar almashish ilovasi.",
+      tags: ['JavaScript', "html", "css"],
+      github: 'https://github.com/ammorrustamov/qiynalib-qildim',
+      demo: 'https://qiynalib-qildim.vercel.app/',
+      image: Positivus
+    },
+    {
+      id: 5,
+      name: 'Exclusive-2',
+      desc: "Exclusive - bu Stripe to'lov tizimi, boshqaruv paneli va zamonaviy React frontendiga ega to'liq funksiyali elektron tijorat platformasi.",
+      tags: ['React', "Java Script", "Html", "Css"],
+      github: 'https://github.com/ammorrustamov/imtixon',
+      demo: 'https://imtixon-gamma-six.vercel.app/',
+      image: a // BU RASM
+    },
+    {
+      id: 6,
+      name: 'Telefon Bozori',
+      desc: "Markdown qo'llab-quvvatlashi, izohlar va qidiruv funksiyalariga ega to'liq funksiyali blog.",
+      tags: ['React', 'Node.js', 'Express', 'MongoDB'],
+      github: 'https://github.com/ammorrustamov/projeckt',
+      demo: 'https://projeckt-ten.vercel.app/',
+      image: phone
+    }
+  ]
+}
 
     return (
       <section id="projects" className={`${styles.projects} section-padding`}>

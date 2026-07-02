@@ -81,7 +81,29 @@
 .contactForm textarea {
   resize: vertical;
 }
+.successMessage {
+  color: #4caf50;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(76, 175, 80, 0.1);
+  text-align: center;
+}
 
+.errorMessage {
+  color: #f44336;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(244, 67, 54, 0.1);
+  text-align: center;
+}
+
+/* Button disabled holati */
+.contactForm button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 @media (max-width: 768px) {
   .contactGrid {
     grid-template-columns: 1fr;
