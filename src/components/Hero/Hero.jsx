@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FaDownload, FaEnvelope, FaGithub, FaTelegram } from 'react-icons/fa'
 import { useLanguage } from '../../LanguageContext/LanguageContext'
 import styles from './Hero.module.css'
-import profilePlaceholder from '../../assets/Ammor.jpg'
+import profilePlaceholder from '../../assets/Ammorxon.png'
 
 const Hero = () => {
   const { language } = useLanguage()
