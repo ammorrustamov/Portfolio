@@ -11,6 +11,18 @@
   background: #0b1119;
 }
 
+.backgroundContainer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 1;
+}
+
 /* Premium Gradient Background */
 .gradientBg {
   position: absolute;

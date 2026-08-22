@@ -5,30 +5,30 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 import { useLanguage } from '../../LanguageContext/LanguageContext'
 import styles from './Navbar.module.css'
 
+const navLinks = {
+  en: [
+    { label: 'Home', id: 'home' },
+    { label: 'About', id: 'about' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Services', id: 'services' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Contact', id: 'contact' }
+  ],
+  uz: [
+    { label: 'Bosh Sahifa', id: 'home' },
+    { label: 'Men Haqimda', id: 'about' },
+    { label: "Ko'nikmalar", id: 'skills' },
+    { label: 'Xizmatlar', id: 'services' },
+    { label: 'Loyihalar', id: 'projects' },
+    { label: 'Aloqa', id: 'contact' }
+  ]
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [isLangHovered, setIsLangHovered] = useState(false)
   const { language, toggleLanguage } = useLanguage()
-
-  const navLinks = {
-    en: [
-      { label: 'Home', id: 'home' },
-      { label: 'About', id: 'about' },
-      { label: 'Skills', id: 'skills' },
-      { label: 'Services', id: 'services' },
-      { label: 'Projects', id: 'projects' },
-      { label: 'Contact', id: 'contact' }
-    ],
-    uz: [
-      { label: 'Bosh Sahifa', id: 'home' },
-      { label: 'Men Haqimda', id: 'about' },
-      { label: "Ko'nikmalar", id: 'skills' },
-      { label: 'Xizmatlar', id: 'services' },
-      { label: 'Loyihalar', id: 'projects' },
-      { label: 'Aloqa', id: 'contact' }
-    ]
-  }
 
   useEffect(() => {
     const sections = navLinks[language]

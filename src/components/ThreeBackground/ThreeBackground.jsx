@@ -15,6 +15,8 @@ const ThreeBackground = () => {
   useEffect(() => {
     if (!containerRef.current) return
 
+    const container = containerRef.current
+
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(
       50,
@@ -31,7 +33,7 @@ const ThreeBackground = () => {
     })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
     renderer.setSize(window.innerWidth, window.innerHeight)
-    containerRef.current.appendChild(renderer.domElement)
+    container.appendChild(renderer.domElement)
 
     const ambientLight = new THREE.AmbientLight(0x8bd3ff, 0.45)
     scene.add(ambientLight)
@@ -208,8 +210,8 @@ const ThreeBackground = () => {
       ringMaterial.dispose()
       renderer.dispose()
 
-      if (containerRef.current && renderer.domElement) {
-        containerRef.current.removeChild(renderer.domElement)
+      if (renderer.domElement) {
+        container.removeChild(renderer.domElement)
       }
     }
   }, [])

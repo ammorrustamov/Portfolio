@@ -120,11 +120,6 @@ section {
   z-index: 1;
 }
 
-/* Enhanced transitions */
-* {
-  transition: color 0.4s ease, background-color 0.4s ease;
-}
-
 /* Glass effect enhancement */
 .glass-enhanced {
   background: rgba(30, 41, 59, 0.4);

@@ -18,8 +18,8 @@ const Footer = () => {
         <div className={styles.footerInner}>
           <p>&copy; {new Date().getFullYear()} Ammorxon. {language === 'en' ? 'All rights reserved.' : 'Barcha huquqlar himoyalangan.'}</p>
           <div className={styles.socials}>
-            <a href="#" aria-label="GitHub"><FaGithub /></a>
-            <a href="#" aria-label="Telegram"><FaTelegram /></a>
+            <a href="https://github.com/ammorrustamov" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+            <a href="https://t.me/rustamoov_pm" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><FaTelegram /></a>
           </div>
           <motion.button
             className={styles.backToTop}

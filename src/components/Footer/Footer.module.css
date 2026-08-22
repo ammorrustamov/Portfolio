@@ -1,6 +1,6 @@
 /* src/components/Footer.module.css */
 .footer {
-  padding: 32px 0 44px;
+  padding: 26px 0 34px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(8, 13, 19, 0.8);
 }
@@ -26,8 +26,8 @@
 .socials a {
   color: var(--text-secondary);
   font-size: 1.1rem;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -47,13 +47,13 @@
   background: rgba(215, 183, 122, 0.08);
   border: 1px solid rgba(215, 183, 122, 0.22);
   color: var(--gold-light);
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.25s ease;
 }

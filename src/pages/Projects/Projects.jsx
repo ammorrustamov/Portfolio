@@ -154,7 +154,8 @@ const projectsData = {
                       // Agar rasm bo'lsa - rasmni ko'rsat
                       <img 
                         src={project.image} 
-                        alt={project.name}
+                        alt={`${project.name} project preview`}
+                        loading="lazy"
                         className={styles.projectImage}
                       />
                     ) : (

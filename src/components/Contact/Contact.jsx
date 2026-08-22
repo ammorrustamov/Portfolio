@@ -9,6 +9,7 @@ const Contact = () => {
   const { language } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     telegramUsername: '',
     message: ''
   })
@@ -55,38 +56,21 @@ const Contact = () => {
     setSubmitStatus(null)
 
     try {
-      // Telegram bot orqali xabar yuborish
-      const BOT_TOKEN = '8697859480:AAF8d-lJk8Y0-qLsKucWCMXFZ97PYumEg-w' // BotFather dan olingan token
-      const CHAT_ID = '8513337432' // Sizning Telegram ID'ingiz
-      
-      const message = `
-📩 Yangi xabar:
-
-👤 Ism: ${formData.name}
-📱 Telegram: ${formData.telegramUsername}
-💬 Xabar: ${formData.message}
-      `
-
-      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message,
-          parse_mode: 'HTML'
-        })
+        body: JSON.stringify(formData)
       })
 
       if (response.ok) {
         setSubmitStatus('success')
-        setFormData({ name: '', telegramUsername: '', message: '' })
+        setFormData({ name: '', email: '', telegramUsername: '', message: '' })
       } else {
         setSubmitStatus('error')
       }
-    } catch (error) {
-      console.error('Xatolik:', error)
+    } catch {
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -123,16 +107,31 @@ const Contact = () => {
             </div>
             
             <form className={styles.contactForm} onSubmit={handleSubmit}>
-              <input 
+              <label htmlFor="contact-name">{content[language].name}</label>
+              <input
+                id="contact-name"
                 type="text" 
                 name="name"
-                placeholder={content[language].name} 
+                placeholder={content[language].name}
                 value={formData.name}
                 onChange={handleChange}
                 required 
               />
               
-              <input 
+              <label htmlFor="contact-email">Email</label>
+              <input
+                id="contact-email"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+
+              <label htmlFor="contact-telegram">{content[language].telegram}</label>
+              <input
+                id="contact-telegram"
                 type="text" 
                 name="telegramUsername"
                 placeholder={content[language].telegram} 
@@ -141,7 +140,9 @@ const Contact = () => {
                 required 
               />
               
-              <textarea 
+              <label htmlFor="contact-message">{content[language].message}</label>
+              <textarea
+                id="contact-message"
                 name="message"
                 rows="5" 
                 placeholder={content[language].message} 

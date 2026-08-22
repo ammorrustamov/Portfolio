@@ -10,11 +10,9 @@ const Hero = () => {
   const { language } = useLanguage()
 
   const handleDownloadClick = (event) => {
-    event.preventDefault()
-
     if (typeof window !== 'undefined' && window.ReactNativeWebView) {
+      event.preventDefault()
       window.ReactNativeWebView.postMessage('DOWNLOAD_APP')
-      return
     }
   }
 
@@ -62,7 +60,7 @@ const Hero = () => {
             <p className={styles.location}>{content[language].location}</p>
 
             <div className={styles.ctaGroup}>
-              <a href="#" className="btn-primary" onClick={handleDownloadClick}>
+              <a href="/CV.pdf" download className="btn-primary" onClick={handleDownloadClick}>
                 <FaDownload /> {content[language].download}
               </a>
               <a href="#contact" className="btn-outline">

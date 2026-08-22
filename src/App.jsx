@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import About from './pages/About/About'

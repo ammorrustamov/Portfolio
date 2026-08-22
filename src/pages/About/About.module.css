@@ -7,7 +7,7 @@
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   letter-spacing: -0.05em;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   position: relative;
   display: inline-block;
 }
@@ -26,18 +26,18 @@
 .aboutGrid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  gap: 34px;
+  gap: 28px;
   align-items: stretch;
 }
 
 .aboutText {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 18px;
   background: rgba(18, 29, 43, 0.45);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 30px;
+  padding: 24px;
   box-shadow: var(--shadow-premium);
 }
 
@@ -71,7 +71,7 @@
 
 .timelineCard {
   background: linear-gradient(180deg, rgba(18, 29, 43, 0.8), rgba(16, 25, 36, 0.7));
-  padding: 30px 26px;
+  padding: 24px 22px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-premium);
