@@ -1,37 +1,61 @@
 // src/components/Navbar.jsx
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FaBars, FaTimes, FaGlobe } from 'react-icons/fa'
+import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { FaBars, FaTimes } from 'react-icons/fa'
 import { useLanguage } from '../../LanguageContext/LanguageContext'
 import styles from './Navbar.module.css'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
   const [isLangHovered, setIsLangHovered] = useState(false)
   const { language, toggleLanguage } = useLanguage()
 
   const navLinks = {
-    en: ['Home', 'About', 'Skills', 'Services', 'Projects', 'Contact'],
-    uz: ['Bosh Sahifa', 'Men Haqimda', "Ko'nikmalar", 'Xizmatlar', 'Loyihalar', 'Aloqa']
+    en: [
+      { label: 'Home', id: 'home' },
+      { label: 'About', id: 'about' },
+      { label: 'Skills', id: 'skills' },
+      { label: 'Services', id: 'services' },
+      { label: 'Projects', id: 'projects' },
+      { label: 'Contact', id: 'contact' }
+    ],
+    uz: [
+      { label: 'Bosh Sahifa', id: 'home' },
+      { label: 'Men Haqimda', id: 'about' },
+      { label: "Ko'nikmalar", id: 'skills' },
+      { label: 'Xizmatlar', id: 'services' },
+      { label: 'Loyihalar', id: 'projects' },
+      { label: 'Aloqa', id: 'contact' }
+    ]
   }
 
-  const scrollTo = (id) => {
-    const sectionMap = {
-      'Home': 'home',
-      'About': 'about',
-      'Skills': 'skills',
-      'Services': 'services',
-      'Projects': 'projects',
-      'Contact': 'contact',
-      'Bosh Sahifa': 'home',
-      'Men Haqimda': 'about',
-      "Ko'nikmalar": 'skills',
-      'Xizmatlar': 'services',
-      'Loyihalar': 'projects',
-      'Aloqa': 'contact'
+  useEffect(() => {
+    const sections = navLinks[language]
+      .map((item) => document.getElementById(item.id))
+      .filter(Boolean)
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 180
+      let current = 'home'
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= scrollPosition) {
+          current = section.id
+        }
+      })
+
+      setActiveSection(current)
     }
-    const el = document.getElementById(sectionMap[id])
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [language])
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     setIsOpen(false)
   }
 
@@ -44,9 +68,8 @@ const Navbar = () => {
     >
       <div className="container">
         <div className={styles.navInner}>
-          {/* ===== LOGO + TIL TUGMASI ===== */}
           <div className={styles.logoSection}>
-            <motion.div 
+            <motion.div
               className={styles.logo}
               whileHover={{ scale: 1.05 }}
               transition={{ type: 'spring', stiffness: 400 }}
@@ -54,7 +77,6 @@ const Navbar = () => {
               <span className="gradient-text">Ammorxon</span>
             </motion.div>
 
-            {/* Til o'zgartirish tugmasi - logoning yonida */}
             <motion.button
               className={styles.langBtn}
               onClick={toggleLanguage}
@@ -62,38 +84,37 @@ const Navbar = () => {
               onMouseLeave={() => setIsLangHovered(false)}
               whileHover={{ scale: 1.1, rotate: 15 }}
               whileTap={{ scale: 0.9 }}
-              animate={{
-                rotate: isLangHovered ? [0, -10, 10, -10, 0] : 0
-              }}
+              animate={{ rotate: isLangHovered ? [0, -10, 10, -10, 0] : 0 }}
               transition={{ duration: 0.5 }}
             >
               <motion.span
                 animate={{ rotate: language === 'en' ? 0 : 360 }}
                 transition={{ duration: 0.6, type: 'spring' }}
               >
-                🌐
+                
               </motion.span>
-              <span className={styles.langText}>
-                {language === 'en' ? 'UZ' : 'EN'}
-              </span>
+              <span className={styles.langText}>{language === 'en' ? 'UZ' : 'EN'}</span>
             </motion.button>
           </div>
 
-          {/* ===== MENYU LINKLARI ===== */}
           <ul className={`${styles.navLinks} ${isOpen ? styles.active : ''}`}>
             {navLinks[language].map((link, index) => (
-              <motion.li 
-                key={link}
-                initial={{ opacity: 0, y: -20 }}
+              <motion.li
+                key={link.id}
+                initial={{ opacity: 0, y: -18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
+                transition={{ delay: index * 0.04 }}
               >
-                <button onClick={() => scrollTo(link)}>{link}</button>
+                <button
+                  className={activeSection === link.id ? styles.activeLink : ''}
+                  onClick={() => scrollTo(link.id)}
+                >
+                  {link.label}
+                </button>
               </motion.li>
             ))}
           </ul>
 
-          {/* ===== HAMBURGER ===== */}
           <button
             className={styles.hamburger}
             onClick={() => setIsOpen(!isOpen)}
@@ -108,20 +129,6 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-
-      {/* ===== TIL O'ZGARGANDA ANIMATSIYA ===== */}
-      {/* <AnimatePresence>
-        <motion.div
-          key={language}
-          className={styles.langChangeIndicator}
-          initial={{ opacity: 0, y: 20, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -20, scale: 0.8 }}
-          transition={{ duration: 0.4, type: 'spring' }}
-        >
-          {language === 'en' ? '🇬🇧 English' : '🇺🇿 O\'zbekcha'}
-        </motion.div>
-      </AnimatePresence> */}
     </motion.nav>
   )
 }

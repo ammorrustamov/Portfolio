@@ -9,6 +9,8 @@ import Timeline from './pages/Timeline/Timeline'
 import Projects from './pages/Projects/Projects'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+import Background3D from './components/Background3D/Background3D'
+import CursorGlow from './components/CursorGlow/CursorGlow'
 import { LanguageProvider } from '../src/LanguageContext/LanguageContext'
 import './App.css'
 
@@ -31,6 +33,8 @@ function App() {
 
   return (
     <LanguageProvider>
+      <Background3D />
+      <CursorGlow />
       <Navbar />
       <Hero />
       <About />

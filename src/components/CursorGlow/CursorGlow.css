@@ -1,0 +1,48 @@
+/* src/components/CursorGlow/CursorGlow.css */
+
+.cursorGlow {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(33, 150, 243, 0.9), rgba(32, 196, 232, 0.28), rgba(32, 196, 232, 0) 72%);
+  box-shadow: 0 0 18px rgba(33, 150, 243, 0.28);
+  opacity: 0.9;
+}
+
+.cursorTrail {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.cursorParticle {
+  position: fixed;
+  border-radius: 50%;
+  background: rgba(125, 211, 252, 0.8);
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.28);
+  transform: translate(-50%, -50%);
+  animation: cursorFade 0.45s ease-out forwards;
+}
+
+@keyframes cursorFade {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+}
+
+@media (max-width: 768px) {
+  .cursorGlow,
+  .cursorTrail {
+    display: none;
+  }
+}
