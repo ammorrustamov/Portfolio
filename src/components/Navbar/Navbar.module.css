@@ -258,7 +258,7 @@
     right: -100%;
     width: 280px;
     height: 100vh;
-    background: rgba(17, 2, 2, 0.98);
+    background: rgba(202, 201, 172, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     flex-direction: column;

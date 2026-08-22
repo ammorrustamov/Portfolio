@@ -35,13 +35,19 @@ export default async function handler(request, response) {
     return response.status(503).json({ error: 'Contact service is not configured.' })
   }
 
+  if (!/^-?\d+$/.test(chatId)) {
+    return response.status(503).json({ error: 'TELEGRAM_CHAT_ID must be a numeric Telegram chat ID.' })
+  }
+
   const telegramMessage = [
-    'New portfolio message:',
+    '📩 Yangi Contact xabari',
     '',
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Telegram: ${telegramUsername}`,
-    `Message: ${message}`
+    `👤 Ism: ${name}`,
+    `📧 Email: ${email}`,
+    `📱 Telegram: ${telegramUsername}`,
+    '',
+    '💬 Xabar:',
+    message
   ].join('\n')
 
   try {

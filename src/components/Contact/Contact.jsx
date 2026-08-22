@@ -5,6 +5,10 @@ import { FaEnvelope, FaTelegram, FaGithub, FaMapMarkerAlt } from 'react-icons/fa
 import { useLanguage } from '../../LanguageContext/LanguageContext'
 import styles from './Contact.module.css'
 
+// Telegram BotFather ma'lumotlari
+const BOT_TOKEN = '8697859480:AAF8d-lJk8Y0-qLsKucWCMXFZ97PYumEg-w'
+const CHAT_ID = '8513337432'
+
 const Contact = () => {
   const { language } = useLanguage()
   const [formData, setFormData] = useState({
@@ -56,21 +60,45 @@ const Contact = () => {
     setSubmitStatus(null)
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      })
+      const telegramMessage = `📩 Yangi Contact xabari
 
-      if (response.ok) {
+👤 Ism: ${formData.name}
+📧 Email: ${formData.email}
+📱 Telegram: ${formData.telegramUsername}
+
+💬 Xabar:
+${formData.message}`
+
+      const response = await fetch(
+        `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: telegramMessage
+          })
+        }
+      )
+
+      const result = await response.json()
+
+      if (response.ok && result.ok) {
         setSubmitStatus('success')
-        setFormData({ name: '', email: '', telegramUsername: '', message: '' })
+        setFormData({
+          name: '',
+          email: '',
+          telegramUsername: '',
+          message: ''
+        })
       } else {
+        console.error('Telegram error:', result)
         setSubmitStatus('error')
       }
-    } catch {
+    } catch (error) {
+      console.error('Contact error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -92,33 +120,46 @@ const Contact = () => {
             <div className={styles.contactInfo}>
               <h3>{content[language].subtitle}</h3>
               <p>{content[language].desc}</p>
+
               <div className={styles.infoItem}>
                 <FaEnvelope /> <span>ammorrustamoov@gmail.com</span>
               </div>
+
               <div className={styles.infoItem}>
                 <FaTelegram /> <span>@rustamoov_pm</span>
               </div>
+
               <div className={styles.infoItem}>
                 <FaGithub /> <span>github.com/ammorrustamov</span>
               </div>
+
               <div className={styles.infoItem}>
-                <FaMapMarkerAlt /> <span>{language === 'en' ? 'Namangan, Uzbekistan' : 'Namangan, O\'zbekiston'}</span>
+                <FaMapMarkerAlt />
+                <span>
+                  {language === 'en'
+                    ? 'Namangan, Uzbekistan'
+                    : 'Namangan, O\'zbekiston'}
+                </span>
               </div>
             </div>
-            
+
             <form className={styles.contactForm} onSubmit={handleSubmit}>
-              <label htmlFor="contact-name">{content[language].name}</label>
+              <label htmlFor="contact-name">
+                {content[language].name}
+              </label>
+
               <input
                 id="contact-name"
-                type="text" 
+                type="text"
                 name="name"
                 placeholder={content[language].name}
                 value={formData.name}
                 onChange={handleChange}
-                required 
+                required
               />
-              
+
               <label htmlFor="contact-email">Email</label>
+
               <input
                 id="contact-email"
                 type="email"
@@ -129,41 +170,54 @@ const Contact = () => {
                 required
               />
 
-              <label htmlFor="contact-telegram">{content[language].telegram}</label>
+              <label htmlFor="contact-telegram">
+                {content[language].telegram}
+              </label>
+
               <input
                 id="contact-telegram"
-                type="text" 
+                type="text"
                 name="telegramUsername"
-                placeholder={content[language].telegram} 
+                placeholder={content[language].telegram}
                 value={formData.telegramUsername}
                 onChange={handleChange}
-                required 
+                required
               />
-              
-              <label htmlFor="contact-message">{content[language].message}</label>
+
+              <label htmlFor="contact-message">
+                {content[language].message}
+              </label>
+
               <textarea
                 id="contact-message"
                 name="message"
-                rows="5" 
-                placeholder={content[language].message} 
+                rows="5"
+                placeholder={content[language].message}
                 value={formData.message}
                 onChange={handleChange}
                 required
               ></textarea>
-              
-              <button 
-                type="submit" 
+
+              <button
+                type="submit"
                 className="btn-primary"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? content[language].sending : content[language].send}
+                {isSubmitting
+                  ? content[language].sending
+                  : content[language].send}
               </button>
-              
+
               {submitStatus === 'success' && (
-                <p className={styles.successMessage}>{content[language].success}</p>
+                <p className={styles.successMessage}>
+                  {content[language].success}
+                </p>
               )}
+
               {submitStatus === 'error' && (
-                <p className={styles.errorMessage}>{content[language].error}</p>
+                <p className={styles.errorMessage}>
+                  {content[language].error}
+                </p>
               )}
             </form>
           </div>
