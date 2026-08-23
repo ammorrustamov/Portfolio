@@ -1,6 +1,6 @@
 /* src/components/Timeline.module.css */
 .timeline {
-  background: rgba(30, 41, 59, 0.1);
+  background: transparent;
 }
 
 .sectionTitle {
@@ -18,7 +18,7 @@
   left: 0;
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background: var(--gradient-gold);
   border-radius: 4px;
 }
 

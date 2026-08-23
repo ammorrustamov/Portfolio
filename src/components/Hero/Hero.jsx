@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FaDownload, FaEnvelope, FaGithub, FaTelegram } from 'react-icons/fa'
 import { useLanguage } from '../../LanguageContext/LanguageContext'
 import styles from './Hero.module.css'
-import profilePlaceholder from '../../assets/Ammorxon.jpg'
+import CodeVisualizer from '../CodeVisualizer/CodeVisualizer'
 
 const Hero = () => {
   const { language } = useLanguage()
@@ -81,9 +81,7 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <div className={styles.imageWrapper}>
-              <img src={profilePlaceholder} alt="Ammorxon" />
-              <div className={styles.blurOrb}></div>
-              <div className={styles.floatingOrb}></div>
+              <CodeVisualizer />
             </div>
           </motion.div>
         </div>

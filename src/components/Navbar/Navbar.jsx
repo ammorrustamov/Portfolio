@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { useLanguage } from '../../LanguageContext/LanguageContext'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import styles from './Navbar.module.css'
 
 const navLinks = {
@@ -95,6 +96,8 @@ const Navbar = () => {
               </motion.span>
               <span className={styles.langText}>{language === 'en' ? 'UZ' : 'EN'}</span>
             </motion.button>
+
+            <ThemeToggle />
           </div>
 
           <ul className={`${styles.navLinks} ${isOpen ? styles.active : ''}`}>

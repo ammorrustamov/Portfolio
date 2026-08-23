@@ -1,6 +1,6 @@
 /* src/components/About.module.css */
 .about {
-  background: rgba(18, 29, 43, 0.12);
+  background: transparent;
 }
 
 .sectionTitle {
@@ -19,7 +19,7 @@
   left: 0;
   width: 72px;
   height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background: var(--gradient-gold);
   border-radius: 999px;
 }
 
@@ -34,7 +34,7 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  background: rgba(18, 29, 43, 0.45);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
@@ -61,8 +61,8 @@
   font-size: 0.94rem;
   padding: 10px 12px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.02);
+  background: var(--gold-soft);
+  border: 1px solid var(--border);
 }
 
 .infoGrid div svg {
@@ -70,7 +70,7 @@
 }
 
 .timelineCard {
-  background: linear-gradient(180deg, rgba(18, 29, 43, 0.8), rgba(16, 25, 36, 0.7));
+  background: linear-gradient(180deg, var(--surface), var(--card));
   padding: 24px 22px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -85,7 +85,7 @@
 
 .timelineItem {
   padding: 14px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--border);
 }
 
 .timelineItem:last-child {

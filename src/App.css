@@ -22,7 +22,8 @@
 
 /* Enhanced gradient backgrounds */
 ::selection {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(6, 182, 212, 0.5));
+  background: var(--gold-glow);
+  color: var(--white);
 }
 
 ::-webkit-scrollbar {
@@ -30,16 +31,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.5);
+  background: var(--bg-soft);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #3b82f6, #06b6d4);
+  background: var(--gradient-gold);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #06b6d4, #3b82f6);
+  background: var(--gradient-premium);
 }
 
 /* Enhanced hover effects */
@@ -62,7 +63,7 @@ button,
 /* Better focus states for accessibility */
 button:focus,
 a:focus {
-  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
@@ -111,7 +112,7 @@ a:focus {
 
 /* Glow effect utility */
 .glow {
-  text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  text-shadow: 0 0 20px var(--gold-glow);
 }
 
 /* Better spacing consistency */
@@ -122,13 +123,13 @@ section {
 
 /* Glass effect enhancement */
 .glass-enhanced {
-  background: rgba(30, 41, 59, 0.4);
+  background: var(--glass);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
-  border: 1.5px solid rgba(59, 130, 246, 0.2);
+  border: 1.5px solid var(--border);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    inset 0 1px 1px var(--border-light);
 }
 
 /* Improved hover lift effect */
@@ -138,26 +139,24 @@ section {
 
 .hover-lift:hover {
   transform: translateY(-12px);
-  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2) !important;
+  box-shadow: var(--shadow-premium) !important;
 }
 
 /* Enhanced card styling */
 .card-enhanced {
-  background: rgba(30, 41, 59, 0.5);
+  background: var(--card);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1.5px solid rgba(59, 130, 246, 0.15);
+  border: 1.5px solid var(--border);
   border-radius: 20px;
   padding: 28px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-enhanced:hover {
-  background: rgba(30, 41, 59, 0.7);
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: 
-    0 0 40px rgba(59, 130, 246, 0.2),
-    inset 0 0 20px rgba(59, 130, 246, 0.05);
+  background: var(--surface-strong);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-glow);
   transform: translateY(-6px);
 }
 
@@ -175,7 +174,7 @@ section {
 }
 
 .gradient-animate {
-  background: linear-gradient(135deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6);
+  background: var(--gradient-premium);
   background-size: 300% 300%;
   animation: gradientFlow 8s ease infinite;
   -webkit-background-clip: text;
@@ -185,28 +184,28 @@ section {
 
 /* Text utilities */
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: var(--gradient-gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-glow {
-  color: #22D3EE;
-  text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+  color: var(--gold);
+  text-shadow: 0 0 20px var(--gold-glow);
 }
 
 /* Enhanced glow effect */
 .glow {
-  text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  text-shadow: 0 0 20px var(--gold-glow);
 }
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 20px var(--gold-glow);
   }
   50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
   }
 }
 
@@ -216,7 +215,7 @@ section {
 
 /* Premium focus state */
 :focus-visible {
-  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
 

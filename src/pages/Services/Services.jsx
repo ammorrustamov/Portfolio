@@ -29,7 +29,6 @@ const Services = () => {
     <section id="services" className={`${styles.services} section-padding`}>
       <div className="container">
         <motion.div
-          className="reveal"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
